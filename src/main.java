@@ -21,5 +21,9 @@ public class main {
 			System.out.print(" ");
 		}
 		
+		WriteResults results = new WriteResults();
+		results.writeResults(25, results.test()); //replace 25 with actual time and test with actual 2darraylist
+		
+		
 	}
 }
