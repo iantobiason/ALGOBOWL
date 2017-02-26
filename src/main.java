@@ -6,6 +6,10 @@ public class main {
 
 
 	public static void main(String [] args) {
+		
+		Algorithm alg = new Algorithm();
+		
+		/*
 		FileInput input = new FileInput();
 		input.startUp();
 		System.out.println(input.numberOfTasks);
@@ -20,6 +24,8 @@ public class main {
 			System.out.print(input.machines.get(i));
 			System.out.print(" ");
 		}
+		
+		*/
 		
 	}
 }
