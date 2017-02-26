@@ -23,13 +23,13 @@ public class WriteResults {
 
 
 	//Write the results of our algorithm to a file called "output.txt"
-	public void writeResults(int time, ArrayList<ArrayList<Integer>> Results) {
+	public void writeResults(double time, ArrayList<ArrayList<Integer>> Results) {
 		
 		try{
 		FileWriter write = new FileWriter("output.txt", false);
 		PrintWriter print_line = new PrintWriter(write);
 		
-		print_line.printf("%d%n",time);
+		print_line.printf("%f%n",time);
 		
 		for(int i = 0; i<Results.size(); i++)
 		{
