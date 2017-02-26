@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class VerifyOutput {
 	String outputFile = "output.txt";
-	int time;
+	double time;
 	ArrayList<ArrayList<Integer>> Results;
 	ArrayList<Integer> machines;
 	ArrayList<Integer> tasks;
@@ -59,10 +59,11 @@ public class VerifyOutput {
 
 	//called in ctor, initializes variables for verification
 	private void readOutput() throws FileNotFoundException {
+		Results = new ArrayList<ArrayList<Integer>>();
+		ArrayList templist = new ArrayList<Integer>();
 		
 		FileInput fin = new FileInput();
 		fin.startUp();
-		int numMachines = fin.numberOfMachines;
 		machines = fin.machines;
 		tasks = fin.tasks;
 		
@@ -71,14 +72,18 @@ public class VerifyOutput {
 		String n = in.nextLine();
 		time = Integer.parseInt(n);
 
-		for(int j = 0; j<numMachines - 1; j++)
+		//System.out.println("number of machines" + machines.size());
+		for(int j = 0; j<machines.size(); j++)
 		{
+			Results.add(new ArrayList<Integer>());
 			String ints = in.nextLine();
 			String[] seperatedInts = ints.split(" ");
+			//System.out.println("Machine number " + (j+1));
 			for(int i = 0; i < seperatedInts.length; i++)
 			{
 				int temp = Integer.parseInt(seperatedInts[i]);
-				Results.get(j).add(tasks.get(temp));
+				//System.out.println("Trying to add " + tasks.get(temp-1));
+				Results.get(j).add(tasks.get(temp-1));
 			}
 		}
 		
