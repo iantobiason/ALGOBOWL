@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class randomInputGenerator {
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated constructor stub
-		randomInputGenerator p = new randomInputGenerator();
-		p.generateRandomInputs();
-	}
+//	public static void main(String[] args) {
+//		// TODO Auto-generated constructor stub
+//		randomInputGenerator p = new randomInputGenerator();
+//		p.generateRandomInputs();
+//	}
 	
 	private int n = 457;	//number of Tasks
 	private int m = 37;
