@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileInput {
-	String File = "test.txt";
+	String File = "good.txt";
 	int numberOfTasks;
 	int numberOfMachines;
 	ArrayList<Integer> tasks = new ArrayList<Integer>();

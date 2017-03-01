@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Algorithm {
@@ -12,7 +13,7 @@ public class Algorithm {
 	ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
 	ArrayList<Double> machineTimes = new ArrayList<Double>();
 	double totalTime;
-	Map taskMap = new HashMap();
+	Map<Integer, List<Integer>> taskMap = new HashMap<Integer, List<Integer>>();
 	ArrayList<Integer> visited = new ArrayList<Integer>();
 
 	public Algorithm() {
@@ -22,7 +23,15 @@ public class Algorithm {
 		assignedTasks = new ArrayList<ArrayList<Integer>>(input.numberOfMachines);
 
 		for (int i = 0; i < input.tasks.size(); i++) {
-			taskMap.put(input.tasks.get(i), i + 1);
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(i + 1);
+			if(!taskMap.containsKey(input.tasks.get(i))) {
+				taskMap.put(input.tasks.get(i), list);
+			}
+			else {
+				taskMap.get(input.tasks.get(i)).add(i + 1);
+			}
+					
 		}
 
 		Collections.sort(input.tasks);
@@ -73,7 +82,8 @@ public class Algorithm {
 			for (int j = 0; j < assignedTasks.get(i).size(); j++) {
 
 				int key = assignedTasks.get(i).get(j);
-				int value = (int) taskMap.get(key);
+				int value = (int) taskMap.get(key).get(0);
+				taskMap.get(key).remove(0);
 				temp.get(i).add(value);
 				visited.add(value);
 
